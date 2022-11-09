@@ -1,0 +1,53 @@
+package Avaliacao;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class temperaturas {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Digite a quantidade de temperaturas a serem transformadas: ");
+		double temp = sc.nextDouble();
+		
+		System.out.println("Digite a unidade de origem da temperatura: ");
+		String temp1 = sc.nextLine();
+		
+		System.out.println("Digite a unidade da temperatura a ser transformada: ");
+		String temp2 = sc.nextLine();
+		
+		for(int i = 0; i < temp + 1; i++) {
+			System.out.println("Digite a temperatura desejada: ");
+			double temperatura = sc.nextDouble();
+			
+			if (temp1 == "celsius" && temp2 == "Kelvin") {
+				double nova_temp = temperatura + 273.15;
+				System.out.printf("Temperatura passada: %.2f C.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f K.", nova_temp);
+			} else if (temp1 == "celsius" && temp2 == "fahrenheit") {
+				double nova_temp = (temperatura * 9/5) + 32;
+				System.out.printf("Temperatura passada: %.2f C.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.", nova_temp);
+			} else if (temp1 == "kelvin" && temp2 == "celsius") {
+				double nova_temp = temperatura - 273.15;
+				System.out.printf("Temperatura passada: %.2f K.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f C.", nova_temp);
+			} else if (temp1 == "kelvin" && temp2 == "fahrenheit") {
+				double nova_temp = (temperatura - 273.15) * 9/5 + 32;
+				System.out.printf("Temperatura passada: %.2f K.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.", nova_temp);
+			} else if (temp1 == "fahrenheit" && temp2 == "celsius") {
+				double nova_temp = (temperatura - 32) * 9/5;
+				System.out.printf("Temperatura passada: %.2f K.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.", nova_temp);
+			} else if (temp1 == "fahrenheit" && temp2 == "kelvin") {
+				double nova_temp = (temperatura - 32) * 9/5 + 273.15;
+				System.out.printf("Temperatura passada: %.2f K.", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.", nova_temp);
+			}
+		}
+
+	}
+
+}

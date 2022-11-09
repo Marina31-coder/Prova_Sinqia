@@ -1,0 +1,79 @@
+package Avaliacao;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class temperaturas {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in).useLocale(Locale.US);
+		
+		System.out.println("Digite a quantidade de temperaturas a serem transformadas: ");
+		double quant = sc.nextDouble();
+		
+		double cont1 = 0;
+		double cont2 = 0;
+		
+		if(quant <= 0) {
+			System.out.println("Não há nenhuma temperatura para transformar.");
+		} else {
+		for(int i = 0; i < quant; i++) {
+			
+			System.out.println("Digite a unidade de origem da temperatura: ");
+			System.out.println("1. Celsius\n2. Kelvin\n3. Fahrenheit");
+			int temp1 = sc.nextInt();
+			
+			System.out.println("Digite a unidade da temperatura a ser transformada: ");
+			System.out.println("1. Celsius\n2. Kelvin\n3. Fahrenheit");
+			int temp2 = sc.nextInt();
+			
+			System.out.println("Digite a temperatura desejada: ");
+			double temperatura = sc.nextDouble();
+			double nova_temp = 0;
+			
+			cont1 = cont1 + temperatura;
+			
+			
+			if (temp1 == 1 && temp2 == 2) {
+				nova_temp = temperatura + 273.15;
+				System.out.printf("Temperatura passada: %.2f C.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f K.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			} else if (temp1 == 1 && temp2 == 3) {
+				nova_temp = (temperatura * 9/5) + 32;
+				System.out.printf("Temperatura passada: %.2f C.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			} else if (temp1 == 2 && temp2 == 1) {
+				nova_temp = temperatura - 273.15;
+				System.out.printf("Temperatura passada: %.2f K.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f C.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			} else if (temp1 == 2 && temp2 == 3) {
+				nova_temp = (temperatura - 273.15) * 9/5 + 32;
+				System.out.printf("Temperatura passada: %.2f K.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			} else if (temp1 == 3 && temp2 == 1) {
+				nova_temp = (temperatura - 32) * 5/9;
+				System.out.printf("Temperatura passada: %.2f F.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f C.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			} else if (temp1 == 3 && temp2 == 2) {
+				nova_temp = (temperatura - 32) * 5/9 + 273.15;
+				System.out.printf("Temperatura passada: %.2f K.\n", temperatura);
+				System.out.printf("Temperatura transformada: %.2f F.\n", nova_temp);
+				cont2 = cont2 + nova_temp;
+			}
+		  }
+		
+		double mediaI = cont1/quant;
+		System.out.printf("A média das temperaturas iniciais é %.2f.", mediaI);
+		double mediaI2 = cont2/quant;
+		System.out.printf("\nA média das temperaturas transformadas é %.2f.", mediaI2);
+		
+		}
+
+	}
+
+}
